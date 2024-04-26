@@ -11,14 +11,24 @@ app.use(express.json());
 let sentEmails = [];
 
 // Email sender setup
+// const transporter = nodemailer.createTransport({
+//     host: 'smtp.ethereal.email',
+//     port: 587,
+//     auth: {
+//         user: 'deondre71@ethereal.email',
+//         pass: 'SWAPDqM44gEGM6jKmv'
+//     }
+// });
+//const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-        user: 'deondre71@ethereal.email',
-        pass: 'SWAPDqM44gEGM6jKmv'
-    }
+  host: 'smtp.gmail.com',
+  port: 587,
+  auth: {
+    user: 'deondre71@ethereal.email',
+    pass: 'SWAPDqM44gEGM6jKmv'
+  },
 });
+transporter.verify().then(console.log).catch(console.error);
 
 app.post('/send-newsletter', (req, res) => {
   const { email } = req.body;
@@ -27,7 +37,7 @@ app.post('/send-newsletter', (req, res) => {
   }
 
   const mailOptions = {
-    from: 'iamchandanpandey11@gmail.com',
+    from:'chandan961742@gmail.com',
     to: email,
     subject: 'Newsletter Subscription',
     text: 'Thank you for subscribing to our newsletter!'
