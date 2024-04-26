@@ -10,25 +10,25 @@ app.use(express.json());
 
 let sentEmails = [];
 
-// Email sender setup
-// const transporter = nodemailer.createTransport({
-//     host: 'smtp.ethereal.email',
-//     port: 587,
-//     auth: {
-//         user: 'deondre71@ethereal.email',
-//         pass: 'SWAPDqM44gEGM6jKmv'
-//     }
-// });
-//const nodemailer = require('nodemailer');
+//Email sender setup
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  auth: {
-    user: 'iamchandanpandey11@gmail.com',
-    pass: 'chandan1995'
-  },
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'deondre71@ethereal.email',
+        pass: 'SWAPDqM44gEGM6jKmv'
+    }
 });
-transporter.verify().then(console.log).catch(console.error);
+//const nodemailer = require('nodemailer');
+// const transporter = nodemailer.createTransport({
+//   host: 'smtp.gmail.com',
+//   port: 587,
+//   auth: {
+//     user: 'iamchandanpandey11@gmail.com',
+//     pass: 'chandan1995'
+//   },
+// });
+// transporter.verify().then(console.log).catch(console.error);
 
 app.post('/send-newsletter', (req, res) => {
   const { email } = req.body;
